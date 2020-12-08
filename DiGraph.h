@@ -1,20 +1,31 @@
 #pragma once
 #include <vector>
 
+// Directed graph
 class DiGraph
 {
-	struct GraphNode
+	struct GraphNode	// Vertex of a graph
 	{
-		int number;
+		int number;	// Number of a vertex
 
-		std::vector<GraphNode*> edges;
+		std::vector<GraphNode*> edges;	// Edges from this vertex
 
-		/*GraphNode(int number, std::vector<GraphNode*> edges)
+		GraphNode()
 		{
-			this->number = number;
-			this->edges = edges;
-		}*/
+			number = ++numberCount;
+		}
+
+	private:
+
+		static int numberCount;
 	};
 
-	std::vector<GraphNode> vertices;
+	std::vector<GraphNode> vertices;	// Vertices of a graph
+
+public:
+
+	// External list - number of vertices.
+	// Internal lists - edges from the current vertex. Edges with numbers to nonexistent
+	// vertices are ignored.
+	DiGraph(const std::initializer_list<std::initializer_list<int>>& list);
 };
