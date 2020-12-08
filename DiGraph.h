@@ -22,6 +22,9 @@ class DiGraph
 
 	std::vector<GraphNode> vertices;	// Vertices of a graph
 
+	// Prevent copy constructor
+	DiGraph(const DiGraph& diGraph);
+
 public:
 
 	// External list - number of vertices.
