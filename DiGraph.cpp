@@ -10,7 +10,7 @@ void sortVect(std::vector<int>& vect)
 			{
 				int biggest = *it;
 				*it = *(it + 1);
-				*(it + 1) = *it;
+				*(it + 1) = biggest;
 			}
 }
 
@@ -58,7 +58,8 @@ DiGraph::DiGraph(const std::initializer_list<std::initializer_list<int>>& list)
 	for (std::vector<std::vector<int>>::iterator itExternal = tmpVect.begin(); itExternal < tmpVect.end(); itExternal++)
 	{
 		for (std::vector<int>::iterator itInternal = itExternal->begin(); itInternal < itExternal->end(); itInternal++)
-			if (*itInternal > 0 && *itInternal <= (int)vertices.size())
+			// If internal > 0, <= amount of vertices and != current vertex number
+			if (*itInternal > 0 && *itInternal <= (int)vertices.size() && *itInternal != itVertices->number)
 				itVertices->edges.push_back(&*(vertices.begin() + *(itInternal) - 1));
 		itVertices++;
 	}

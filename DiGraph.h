@@ -10,10 +10,7 @@ class DiGraph
 
 		std::vector<GraphNode*> edges;	// Edges from this vertex
 
-		GraphNode()
-		{
-			number = ++numberCount;
-		}
+		GraphNode() { number = ++numberCount; }
 
 	private:
 
