@@ -8,19 +8,22 @@
 */
 
 #include <iostream>
+#include <iomanip>
 #include "DiGraph.h"
 
-//void PrintWays(const std::vector<std::vector<int>>& ways)
-//{
-//    for (size_t i = 0; i < length; i++)
-//    {
-//
-//    }
-//}
+void PrintWays(const std::vector<std::vector<int>>& ways)
+{
+    for (auto itExternal = ways.cbegin(); itExternal < ways.cend(); itExternal++)
+    {
+        for (auto itInternal = itExternal->cbegin(); itInternal < itExternal->cend(); itInternal++)
+            std::cout << std::setw(4) << *itInternal;
+        std::cout << std::endl;
+    }
+}
 
 int main()
 {
-    DiGraph graph
+    DiGraph graph       // Directed graph from "Graph.png"
     {
         { 2, 3 },       // 1 vertex
         { 4 },          // 2
@@ -32,7 +35,25 @@ int main()
         { 6, 7 }        // 8
     };
 
-    std::vector<std::vector<int>> ways = graph.GetWays(1, 4);
+    auto ways = graph.GetWays(1, 4);
+    std::cout << "Ways from vertex 1 to vertex 4:" << std::endl;
+    PrintWays(ways);
+    std::cout << std::endl;
+
+    ways = graph.GetWays(3, 8);
+    std::cout << "Ways from vertex 3 to vertex 8:" << std::endl;
+    PrintWays(ways);
+    std::cout << std::endl;
+
+    ways = graph.GetWays(2, 7);
+    std::cout << "Ways from vertex 2 to vertex 7:" << std::endl;
+    PrintWays(ways);
+    std::cout << std::endl;
+
+    ways = graph.GetWays(5, 6);
+    std::cout << "Ways from vertex 5 to vertex 6:" << std::endl;
+    PrintWays(ways);
+    std::cout << std::endl;
 
     return 0;
 }
