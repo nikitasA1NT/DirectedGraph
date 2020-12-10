@@ -1,4 +1,5 @@
 #include "DiGraph.h"
+#include <iostream>
 
 int DiGraph::GraphNode::numberCount = 0;
 
@@ -63,4 +64,17 @@ DiGraph::DiGraph(const std::initializer_list<std::initializer_list<int>>& list)
 				itVertices->edges.push_back(&*(vertices.begin() + *(itInternal) - 1));
 		itVertices++;
 	}
+}
+
+std::vector<std::vector<int>> DiGraph::GetWays(int v1, int v2)
+{
+	std::vector<std::vector<int>> ways;
+
+	if ((v1 <= 0 || v1 > vertices.size()) || (v2 <= 0 || v2 > vertices.size()))
+	{
+		std::cerr << "ERROR: One of the transmitted vertices is missing." << std::endl;
+		return ways;
+	}
+
+	return ways;
 }

@@ -28,4 +28,8 @@ public:
 	// Internal lists - edges from the current vertex. Edges with numbers to nonexistent
 	// vertices are ignored.
 	DiGraph(const std::initializer_list<std::initializer_list<int>>& list);
+
+	// Return two-dimensial vector whose internal vectors are ways from v1 to v2.
+	// If there are no such vertices, info about this is displayed in the console.
+	std::vector<std::vector<int>> GetWays(int v1, int v2);
 };
