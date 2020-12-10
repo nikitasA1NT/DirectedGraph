@@ -92,18 +92,38 @@ std::vector<std::vector<int>> DiGraph::GetWays(int v1, int v2)
 {
 	std::vector<std::vector<int>> ways;
 
+	// If v1/v2 <= 0, > amount of vertices or v1 == v2 return empty "ways"
 	if ((v1 <= 0 || v1 > (int)vertices.size()) || (v2 <= 0 || v2 > (int)vertices.size()) || v1 == v2)
 	{
-		std::cerr << "ERROR: One of the transmitted vertices is missing." << std::endl;
+		std::cerr << "ERROR: One of the transmitted vertices is missing or v1 = v2." << std::endl;
 		return ways;
 	}
 
-	r_GetWays(&vertices[v1], &vertices[v2], ways);
+	std::vector<int> currentWay;
+
+	r_GetWays(&vertices[v1 - 1], &vertices[v2 - 1], ways, currentWay);
 
 	return ways;
 }
 
-void DiGraph::r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways)
+void DiGraph::r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways, std::vector<int> currentWay)
 {
+	if (!Search(currentWay, v1->number))
+	{
+		// Add number of current vertex
+		currentWay.push_back(v1->number);
 
+		// If v1 == v2
+		if (v1->number == v2->number)
+		{
+			ways.push_back(currentWay);
+			return;
+		}
+
+		//for (int i = 0; i < v1->edges.size(); i++)
+		for (std::vector<GraphNode*>::iterator it = v1->edges.begin(); it < v1->edges.end(); it++)
+			r_GetWays(*it, v2, ways, currentWay);
+	}
+
+	
 }

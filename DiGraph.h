@@ -35,5 +35,5 @@ public:
 
 private:
 
-	void r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways);
+	void r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways, std::vector<int> currentWay);
 };

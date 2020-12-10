@@ -10,6 +10,14 @@
 #include <iostream>
 #include "DiGraph.h"
 
+//void PrintWays(const std::vector<std::vector<int>>& ways)
+//{
+//    for (size_t i = 0; i < length; i++)
+//    {
+//
+//    }
+//}
+
 int main()
 {
     DiGraph graph
@@ -23,6 +31,8 @@ int main()
         { 8 },          // 7
         { 6, 7 }        // 8
     };
+
+    std::vector<std::vector<int>> ways = graph.GetWays(1, 4);
 
     return 0;
 }
