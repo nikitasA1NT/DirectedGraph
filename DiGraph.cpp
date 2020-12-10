@@ -78,9 +78,9 @@ DiGraph::DiGraph(const std::initializer_list<std::initializer_list<int>>& list)
 	// Filling vertex edges
 	std::vector<GraphNode>::iterator itVertices = vertices.begin();
 	
-	for (std::vector<std::vector<int>>::iterator itExternal = tmpVect.begin(); itExternal < tmpVect.end(); itExternal++)
+	for (auto itExternal = tmpVect.begin(); itExternal < tmpVect.end(); itExternal++)
 	{
-		for (std::vector<int>::iterator itInternal = itExternal->begin(); itInternal < itExternal->end(); itInternal++)
+		for (auto itInternal = itExternal->begin(); itInternal < itExternal->end(); itInternal++)
 			// If internal > 0, <= amount of vertices and != current vertex number
 			if (*itInternal > 0 && *itInternal <= (int)vertices.size() && *itInternal != itVertices->number)
 				itVertices->edges.push_back(&*(vertices.begin() + *(itInternal) - 1));
@@ -114,14 +114,13 @@ void DiGraph::r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<in
 		currentWay.push_back(v1->number);
 
 		// If v1 == v2
-		if (v1->number == v2->number)
+		if (v1 == v2)
 		{
 			ways.push_back(currentWay);
 			return;
 		}
 
-		//for (int i = 0; i < v1->edges.size(); i++)
-		for (std::vector<GraphNode*>::iterator it = v1->edges.begin(); it < v1->edges.end(); it++)
+		for (std::vector<GraphNode*>::const_iterator it = v1->edges.cbegin(); it < v1->edges.cend(); it++)
 			r_GetWays(*it, v2, ways, currentWay);
 	}
 
