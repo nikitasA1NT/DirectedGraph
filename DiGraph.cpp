@@ -3,7 +3,7 @@
 
 int DiGraph::GraphNode::numberCount = 0;
 
-void sortVect(std::vector<int>& vect)
+void SortVect(std::vector<int>& vect)
 {
 	for (unsigned int i = 0; i < vect.size(); i++)
 		for (std::vector<int>::iterator it = vect.begin(); it < vect.end() - 1; it++)
@@ -15,9 +15,9 @@ void sortVect(std::vector<int>& vect)
 			}
 }
 
-void removeRepets(std::vector<int>& vect)
+void RemoveRepets(std::vector<int>& vect)
 {
-	sortVect(vect);
+	SortVect(vect);
 	std::vector<int> tmpVect;
 
 	for (std::vector<int>::iterator it = vect.begin(); it < vect.end(); it++)
@@ -30,6 +30,28 @@ void removeRepets(std::vector<int>& vect)
 			tmpVect.push_back(*it);
 
 	vect = tmpVect;
+}
+
+bool Search(std::vector<int> vect, int key)
+{
+	SortVect(vect);
+
+	int left = 0;
+	int right = vect.size() - 1;
+
+	while (left <= right)
+	{
+		int middle = (left + right) / 2;
+		std::vector<int>::const_iterator it = vect.cbegin() + middle;
+		if (key == *it)
+			return true;
+		if (*it > key)
+			right = middle - 1;
+		else
+			left = middle + 1;
+	}
+
+	return false;
 }
 
 DiGraph::DiGraph(const std::initializer_list<std::initializer_list<int>>& list)
@@ -48,7 +70,7 @@ DiGraph::DiGraph(const std::initializer_list<std::initializer_list<int>>& list)
 
 	// Sort internal vectors and remove repetitions in them
 	for (itTmpVect = tmpVect.begin(); itTmpVect < tmpVect.end(); itTmpVect++)
-		removeRepets(*itTmpVect);
+		RemoveRepets(*itTmpVect);
 
 	// Creating vertices of a graph
 	vertices.resize(tmpVect.size());
@@ -70,11 +92,18 @@ std::vector<std::vector<int>> DiGraph::GetWays(int v1, int v2)
 {
 	std::vector<std::vector<int>> ways;
 
-	if ((v1 <= 0 || v1 > vertices.size()) || (v2 <= 0 || v2 > vertices.size()))
+	if ((v1 <= 0 || v1 > (int)vertices.size()) || (v2 <= 0 || v2 > (int)vertices.size()) || v1 == v2)
 	{
 		std::cerr << "ERROR: One of the transmitted vertices is missing." << std::endl;
 		return ways;
 	}
 
+	r_GetWays(&vertices[v1], &vertices[v2], ways);
+
 	return ways;
+}
+
+void DiGraph::r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways)
+{
+
 }

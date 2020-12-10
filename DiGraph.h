@@ -32,4 +32,8 @@ public:
 	// Return two-dimensial vector whose internal vectors are ways from v1 to v2.
 	// If there are no such vertices, info about this is displayed in the console.
 	std::vector<std::vector<int>> GetWays(int v1, int v2);
+
+private:
+
+	void r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways);
 };
