@@ -22,12 +22,6 @@ void PrintWays(const std::vector<std::vector<int>>& ways)
     }
 }
 
-bool Foo(std::vector<int>& vect)
-{
-    vect.resize(10);
-    return true;
-}
-
 int main()
 {
     DiGraph graph       // Directed graph from "Graph.png"
