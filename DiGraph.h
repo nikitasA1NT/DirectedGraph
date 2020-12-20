@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-// Directed graph
+// Directed graph. Vertex numbers start at 1
 class DiGraph
 {
 	struct GraphNode	// Vertex of a graph

@@ -35,25 +35,42 @@ int main()
         { 6, 7 }        // 8
     };
 
-    auto ways = graph.GetWays(1, 4);
     std::cout << "Ways from vertex 1 to vertex 4:" << std::endl;
-    PrintWays(ways);
+    PrintWays(graph.GetWays(1, 4));
     std::cout << std::endl;
 
-    ways = graph.GetWays(3, 8);
     std::cout << "Ways from vertex 3 to vertex 8:" << std::endl;
-    PrintWays(ways);
+    PrintWays(graph.GetWays(3, 8));
     std::cout << std::endl;
 
-    ways = graph.GetWays(2, 7);
     std::cout << "Ways from vertex 2 to vertex 7:" << std::endl;
-    PrintWays(ways);
+    PrintWays(graph.GetWays(2, 7));
     std::cout << std::endl;
 
-    ways = graph.GetWays(5, 6);
     std::cout << "Ways from vertex 5 to vertex 6:" << std::endl;
-    PrintWays(ways);
+    PrintWays(graph.GetWays(5, 6));
     std::cout << std::endl;
+
+    std::cout << "Ways from vertex 8 to vertex 2:" << std::endl;
+    PrintWays(graph.GetWays(8, 2));
+    std::cout << std::endl;
+
+    // Graph - tree
+
+    DiGraph graph1       // Directed graph from "Tree.png"
+    {
+        { 2, 8 },        // Vertex #1
+        { 3, 6 },        // 2
+        { 4, 5 },        // 3
+        { },             // 4
+        { },             // 5
+        { 7 },           // 6
+        { },             // 7
+        { 9 },           // 8
+        { 10, 11 },      // 9
+        { },             // 10
+        { }              // 11
+    };
 
     return 0;
 }

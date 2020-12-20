@@ -123,6 +123,4 @@ void DiGraph::r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<in
 		for (std::vector<GraphNode*>::const_iterator it = v1->edges.cbegin(); it < v1->edges.cend(); it++)
 			r_GetWays(*it, v2, ways, currentWay);
 	}
-
-	
 }
