@@ -33,6 +33,9 @@ public:
 	// If there are no such vertices, info about this is displayed in the console.
 	std::vector<std::vector<int>> GetWays(int v1, int v2);
 
+	// Return true if the graph is a tree
+	bool IsTree();
+
 private:
 
 	void r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways, std::vector<int> currentWay);

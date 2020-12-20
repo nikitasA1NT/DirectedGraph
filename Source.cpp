@@ -55,11 +55,13 @@ int main()
     PrintWays(graph.GetWays(8, 2));
     std::cout << std::endl;
 
+
+
     // Graph - tree
 
-    DiGraph graph1       // Directed graph from "Tree.png"
+    DiGraph graph1       // Directed graph from "Tree1.png"
     {
-        { 2, 8 },        // Vertex #1
+        { 2, 8 },        // 1 vertex
         { 3, 6 },        // 2
         { 4, 5 },        // 3
         { },             // 4
