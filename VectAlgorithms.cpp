@@ -1,5 +1,4 @@
 #include "VectAlgorithms.h"
-#include <vector>
 
 void SortVect(std::vector<int>& vect)
 {

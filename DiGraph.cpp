@@ -88,5 +88,12 @@ int DiGraph::EdgesAmount()
 
 bool DiGraph::IsTree()
 {
-	
+	int verticesAmount = vertices.size();
+
+	if (verticesAmount == EdgesAmount() - 1)
+	{
+		// Graph traversal
+	}
+	else
+		return false;
 }

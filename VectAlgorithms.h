@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 // Sort vector using bubblesort
 void SortVect(std::vector<int>& vect);
