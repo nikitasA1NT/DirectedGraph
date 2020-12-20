@@ -10,6 +10,7 @@
 #include <iostream>
 #include <iomanip>
 #include "DiGraph.h"
+#include "VectAlgorithms.h"
 
 void PrintWays(const std::vector<std::vector<int>>& ways)
 {
@@ -19,6 +20,12 @@ void PrintWays(const std::vector<std::vector<int>>& ways)
             std::cout << std::setw(4) << *itInternal;
         std::cout << std::endl;
     }
+}
+
+bool Foo(std::vector<int>& vect)
+{
+    vect.resize(10);
+    return true;
 }
 
 int main()
@@ -73,6 +80,38 @@ int main()
         { },             // 10
         { }              // 11
     };
+
+    DiGraph graph2       // Directed graph from "Tree2.png"
+    {
+        { 2, 8 },        // 1 vertex
+        { 1, 3, 6 },     // 2
+        { 4, 5 },        // 3
+        { },             // 4
+        { },             // 5
+        { 7 },           // 6
+        { },             // 7
+        { 9 },           // 8
+        { 10, 11 },      // 9
+        { },             // 10
+        { }              // 11
+    };
+
+    DiGraph graph3       // Directed graph from "Tree3.png"
+    {
+        { 2 },           // 1 vertex
+        { 3, 6 },        // 2
+        { 4, 5 },        // 3
+        { },             // 4
+        { },             // 5
+        { 7 },           // 6
+        { 9 },           // 7
+        { 9 },           // 8
+        { 10, 11 },      // 9
+        { },             // 10
+        { }              // 11
+    };
+
+    
 
     return 0;
 }

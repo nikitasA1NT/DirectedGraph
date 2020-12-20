@@ -28,8 +28,8 @@ class DiGraph
 public:
 
 	// External list - number of vertices.
-	// Internal lists - edges from the current vertex. Edges with numbers to nonexistent
-	// vertices are ignored.
+	// Internal lists - edges from the current vertex. 
+	// Edges with numbers to nonexistent vertices are ignored.
 	DiGraph(const std::initializer_list<std::initializer_list<int>>& list);
 
 	// Return two-dimensial vector whose internal vectors are ways from v1 to v2.
@@ -44,4 +44,6 @@ private:
 	// Recursive subfunctions:
 
 	void r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways, std::vector<int> currentWay);
+
+	bool r_IsTree(const GraphNode* vertex, std::vector<int>& traversedVertices);
 };

@@ -92,8 +92,43 @@ bool DiGraph::IsTree()
 
 	if (verticesAmount - 1 == EdgesAmount())
 	{
-		// Graph traversal
+		bool graphIsTree = true;
+
+		// Checking the graph against a tree starting from each vertex
+		for (auto it = vertices.cbegin(); it < vertices.cend(); it++)
+		{
+			std::vector<int> traversedVertices;
+
+			// If the subgraph is tree && traversed amount equal vertices amount
+			if (r_IsTree(&*it, traversedVertices) && traversedVertices.size() == verticesAmount)
+				return true;
+			else
+				graphIsTree = false;
+		}
+
+		return graphIsTree;
 	}
 	else
+		return false;
+}
+
+bool DiGraph::r_IsTree(const GraphNode* vertex, std::vector<int>& traversedVertices)
+{
+	if (!Search(traversedVertices, vertex->number))
+	{
+		traversedVertices.push_back(vertex->number);
+
+		// Graph traversal
+		for (auto it = vertex->edges.cbegin(); it < vertex->edges.cend(); it++)
+			// If the subgraph is not a tree
+			if (!r_IsTree(*it, traversedVertices))
+				// because a path to the previously traversed vertex was found
+				return false;
+
+		// because paths to the previously traversed vertices were not found
+		return true;
+	}
+	else
+		// a previously traversed vertex was found
 		return false;
 }
