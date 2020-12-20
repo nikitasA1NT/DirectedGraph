@@ -22,6 +22,9 @@ class DiGraph
 	// Prevent copy constructor
 	DiGraph(const DiGraph& diGraph);
 
+	// Return edges amount of the graph
+	int EdgesAmount();
+
 public:
 
 	// External list - number of vertices.
@@ -37,6 +40,8 @@ public:
 	bool IsTree();
 
 private:
+
+	// Recursive subfunctions:
 
 	void r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways, std::vector<int> currentWay);
 };

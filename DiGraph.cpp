@@ -75,6 +75,17 @@ void DiGraph::r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<in
 	}
 }
 
+int DiGraph::EdgesAmount()
+{
+	int amount = 0;
+
+	for (auto it_e = vertices.cbegin(); it_e < vertices.cend(); it_e++)
+		for (auto it_i = it_e->edges.cbegin(); it_i < it_e->edges.cend(); it_i++)
+			amount++;
+
+	return amount;
+}
+
 bool DiGraph::IsTree()
 {
 	
