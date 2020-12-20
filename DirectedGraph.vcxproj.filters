@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{2aa74183-316b-45d1-ac3a-aa5e6fe3f11a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DiGraph.cpp">
@@ -32,5 +35,19 @@
     <ClInclude Include="VectAlgorithms.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Tree1.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Tree2.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Tree3.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Graph.png">
+      <Filter>Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

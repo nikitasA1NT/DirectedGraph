@@ -147,6 +147,12 @@
     <ClInclude Include="DiGraph.h" />
     <ClInclude Include="VectAlgorithms.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Graph.png" />
+    <Image Include="Tree1.png" />
+    <Image Include="Tree2.png" />
+    <Image Include="Tree3.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
