@@ -111,7 +111,22 @@ int main()
         { }              // 11
     };
 
-    
+    if (graph.IsTree())
+        std::cout << "\"graph\" is a tree" << std::endl;
+    else
+        std::cout << "\"graph\" is not a tree" << std::endl;
+    if (graph1.IsTree())
+        std::cout << "\"graph1\" is a tree" << std::endl;
+    else
+        std::cout << "\"graph1\" is not a tree" << std::endl;
+    if (graph2.IsTree())
+        std::cout << "\"graph2\" is a tree" << std::endl;
+    else
+        std::cout << "\"graph2\" is not a tree" << std::endl;
+    if (graph3.IsTree())
+        std::cout << "\"graph3\" is a tree" << std::endl;
+    else
+        std::cout << "\"graph3\" is not a tree" << std::endl;
 
     return 0;
 }
