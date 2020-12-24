@@ -1,6 +1,6 @@
 #include "DiGraph.h"
 #include <iostream>
-#include "VectAlgorithms.h"
+#include <algorithm>
 
 int DiGraph::GraphNode::numberCount = 0;
 
@@ -20,7 +20,10 @@ DiGraph::DiGraph(const std::initializer_list<std::initializer_list<int>>& list)
 
 	// Sort internal vectors and remove repetitions in them
 	for (itTmpVect = tmpVect.begin(); itTmpVect < tmpVect.end(); itTmpVect++)
-		RemoveRepets(*itTmpVect);
+	{
+		sort(itTmpVect->begin(), itTmpVect->end());
+		itTmpVect->erase(unique(itTmpVect->begin(), itTmpVect->end()), itTmpVect->end());
+	}
 
 	// Creating vertices of a graph
 	vertices.resize(tmpVect.size());
@@ -58,7 +61,7 @@ std::vector<std::vector<int>> DiGraph::GetWays(int v1, int v2)
 
 void DiGraph::r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<int>>& ways, std::vector<int> currentWay)
 {
-	if (!Search(currentWay, v1->number))
+	if (find(currentWay.cbegin(), currentWay.cend(), v1->number) == currentWay.cend())
 	{
 		// Add number of current vertex
 		currentWay.push_back(v1->number);
@@ -114,7 +117,7 @@ bool DiGraph::IsTree()
 
 bool DiGraph::r_IsTree(const GraphNode* vertex, std::vector<int>& traversedVertices)
 {
-	if (!Search(traversedVertices, vertex->number))
+	if (find(traversedVertices.cbegin(), traversedVertices.cend(), vertex->number) == traversedVertices.cend())
 	{
 		traversedVertices.push_back(vertex->number);
 

@@ -10,7 +10,7 @@
 #include <iostream>
 #include <iomanip>
 #include "DiGraph.h"
-#include "VectAlgorithms.h"
+//#include "VectAlgorithms.h"
 
 void PrintWays(const std::vector<std::vector<int>>& ways)
 {

@@ -1,20 +1,21 @@
 #include "VectAlgorithms.h"
+#include <algorithm>
 
-void SortVect(std::vector<int>& vect)
-{
-	for (unsigned int i = 0; i < vect.size(); i++)
-		for (std::vector<int>::iterator it = vect.begin(); it < vect.end() - 1; it++)
-			if (*it > *(it + 1))
-			{
-				int biggest = *it;
-				*it = *(it + 1);
-				*(it + 1) = biggest;
-			}
-}
+//void SortVect(std::vector<int>& vect)
+//{
+//	for (unsigned int i = 0; i < vect.size(); i++)
+//		for (std::vector<int>::iterator it = vect.begin(); it < vect.end() - 1; it++)
+//			if (*it > *(it + 1))
+//			{
+//				int biggest = *it;
+//				*it = *(it + 1);
+//				*(it + 1) = biggest;
+//			}
+//}
 
 void RemoveRepets(std::vector<int>& vect)
 {
-	SortVect(vect);
+	sort(vect.begin(), vect.end());
 	std::vector<int> tmpVect;
 
 	for (std::vector<int>::iterator it = vect.begin(); it < vect.end(); it++)
@@ -31,7 +32,7 @@ void RemoveRepets(std::vector<int>& vect)
 
 bool Search(std::vector<int> vect, int key)
 {
-	SortVect(vect);
+	sort(vect.begin(), vect.end());
 
 	int left = 0;
 	int right = vect.size() - 1;
