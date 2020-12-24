@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <list>
 
 // Directed graph. Vertex numbers start at 1
 class DiGraph
@@ -8,7 +9,7 @@ class DiGraph
 	{
 		int number;	// Number of a vertex
 
-		std::vector<GraphNode*> edges;	// Edges from this vertex
+		std::list<GraphNode*> edges;	// Edges from this vertex
 
 		GraphNode() { number = ++numberCount; }
 

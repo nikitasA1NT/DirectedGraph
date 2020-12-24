@@ -73,7 +73,7 @@ void DiGraph::r_GetWays(GraphNode* v1, GraphNode* v2, std::vector<std::vector<in
 			return;
 		}
 
-		for (std::vector<GraphNode*>::const_iterator it = v1->edges.cbegin(); it < v1->edges.cend(); it++)
+		for (std::list<GraphNode*>::const_iterator it = v1->edges.cbegin(); it != v1->edges.cend(); it++)
 			r_GetWays(*it, v2, ways, currentWay);
 	}
 }
@@ -83,7 +83,7 @@ int DiGraph::EdgesAmount()
 	int amount = 0;
 
 	for (auto it_e = vertices.cbegin(); it_e < vertices.cend(); it_e++)
-		for (auto it_i = it_e->edges.cbegin(); it_i < it_e->edges.cend(); it_i++)
+		for (auto it_i = it_e->edges.cbegin(); it_i != it_e->edges.cend(); it_i++)
 			amount++;
 
 	return amount;
@@ -122,7 +122,7 @@ bool DiGraph::r_IsTree(const GraphNode* vertex, std::vector<int>& traversedVerti
 		traversedVertices.push_back(vertex->number);
 
 		// Graph traversal
-		for (auto it = vertex->edges.cbegin(); it < vertex->edges.cend(); it++)
+		for (auto it = vertex->edges.cbegin(); it != vertex->edges.cend(); it++)
 			// If the subgraph is not a tree
 			if (!r_IsTree(*it, traversedVertices))
 				// because a path to the previously traversed vertex was found
